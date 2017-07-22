@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Runners</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    {%load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'app/style.css' %}" />
+</head>
+<body id="{{run.run_code}}">
+    <div class="pnav">
+        <div style="float:left" class="container">
+            <div class="logo-container"><a class="navbar-brand" href="#">
+            {% load static %}
+            <img width="308" height="61" src="{% static "app/run4orphanslogo.jpg" %}"/>
+            </a>
+            </div>
+            <div style="float:left;"class=" links">
+                  <a class="nav-link" href="http://www.run4orphans.org/light-love-home-global"><h5>Light & Love Home Global</h5></a>
+                  <a class="nav-link" href="http://www.run4orphans.org/light-love-home-san-francisco"><h5>Light & Love Home SF</h5></a>
+                  <a class="nav-link" href="#"><h5>Runners</h5></a>
+                  <a class="nav-link" href="http://www.run4orphans.org/about-us-and-contact"><h5>About Us</h5></a>
+                  <a class="nav-link" href="http://www.run4orphans.org/faq"><h5>FAQ</h5></a>
+                <a class="nav-link" href="http://www.run4orphans.org/events/lmr/"><h5>2017 Lake Merced Race</h5></a>
+            </div>
+        </div>
+    </div>
+    <div class="container main">
+        <div class="row" style="display:inline-block;">
+            <h3 style="float:left;">Runners</h3>
+        </div>
+        <div class="row list" style="margin-left:16px;">
+            <p><a href="http://www.run4orphans.org/runners/calvinko">Calvin Ko</a></p>
+            <p><a href="http://www.run4orphans.org/runners/CindyLam">Cindy Lam</a></p>
+            <p><a href="http://www.run4orphans.org/runners/dan-liu">Dan Liu</a></p>
+            <p><a href="http://www.run4orphans.org/runners/winlyanddanny">Danny Lim</a></p>
+            <p><a href="http://www.run4orphans.org/runners/danielmui">Daniel Mui</a></p>
+            <p><a href="http://www.run4orphans.org/runners/davidyeung">David Yeung</a></>
+            <p><a href="http://www.run4orphans.org/runners/fion-nguyen">Fion Nguyen</a></p>
+            <p><a href="http://www.run4orphans.org/runners/KamMingWong">Kam Ming Wong</a></p>
+            <p><a href="http://www.run4orphans.org/runners/MandyChung">Mandy Chung</a></p>
+            <p><a href="http://www.run4orphans.org/runners/elaineandweng" target="_blank" rel="noopener">Weng Ip</a></p>
+            <p><a href="http://www.run4orphans.org/runners/wingtatchan">Wingtat Chan</a></p>
+            <p><a href="http://www.run4orphans.org/runners/paul-kwan">Paul Kwan</a></>
+            <p><a href="http://www.run4orphans.org/runners/EinsZhao">Eins Zhao</a></p>
+            <p><a href="http://www.run4orphans.org/runners/anesdo-fong">Anesdo Fong</a></p>
+            <p><a href="http://www.run4orphans.org/amyyeung">Amy Yeung</a></p>
+            <p><a href="http://www.run4orphans.org/runners/justin-chan">Justin Chan</a></>
+            <p><a href="http://www.run4orphans.org/runners/NanciPang">Nanci Pang</a></p>
+            <p><a href="http://www.run4orphans.org/runners/JasonYu">Jason Yu</a></p>
+            <p><a href="http://www.run4orphans.org/runners/winnieyeung">Winnie Yeung</a></p>
+            <p><a href="http://www.run4orphans.org/runners/Holly-Ho">Holly Ho</a></p>
+            <p><a href="http://www.run4orphans.org/winlychan">Winly Chan</a></p>
+            <p><a href="http://www.run4orphans.org/hanna-lim">Hannah Lim</a></p>
+
+            {% for usr in users %}
+            <p><a href="{{usr.user_id}}">{{usr}}</a></p>
+            {% endfor %}
+        </div>
+
+
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Runner Info</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    {%load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'app/style.css' %}" />
+</head>
+<body id="{{run.run_code}}">
+    <div class="container">
+        <table class="table">
+            <thead>
+                  <tr>
+                        <th>User Id</th>
+                        <th>First name</th>
+                        <th>Last name</th>
+                        <th>Email</th>
+                        <th>Address</th>
+                        <th>Telephone</th>
+                        <th>Gender</th>
+                        <th>Size</th>
+                        <th>Sign up Date</th>
+                        <th>Minor name</th>
+                        <th>Minor Bday</th>
+                        <th>Paid</th>
+                  </tr>
+            </thead>
+            <tbody>
+                {% for runner in run.user_set.all %}
+                <tr id="{{runner.user_id}}">
+                    <td>{{runner.user_id}}</td>
+                    <td>{{runner.first_name}}</td>
+                    <td>{{runner.last_name}}</td>
+                    <td>{{runner.email}}</td>
+                    <td>{{runner.address}}</td>
+                    <td>{{runner.telephone}}</td>
+                    <td>{% if runner.gender == True %}Male{%else%} Female{% endif %}</td>
+                    <td>{% if runner.shirt_size == 1 %} Youth S
+                        {% elif runner.shirt_size == 2 %} Youth M
+                        {% elif runner.shirt_size == 3 %} Youth L
+                        {% elif runner.shirt_size == 4 %} Adult S
+                        {% elif runner.shirt_size == 5 %} Adult M
+                        {% elif runner.shirt_size == 6 %} Adult L
+                        {% elif runner.shirt_size == 7 %} Adult XL
+                        {% else %} wrong size
+                        {% endif %}
+                    </td>
+                    <td>{{runner.sign_up_date}}</td>
+                    <td>{{runner.minor_name}}</td>
+                    <td>{{runner.minor_bday}}</td>
+                    <td {% if runner.paid == False %} style="color:red;"{%endif%}>{{runner.paid}}
+                          <!--<label>-->
+                                <!--<input type="checkbox" id="paid-cb"value="" {% if runner.paid == True %} disabled checked {% endif %}>-->
+                          <!--</label>-->
+
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+
+        </table>
+    </div>
+    <!--<div class="container">-->
+        <!--<div class="row">-->
+            <!--<button type="button" class="btn btn-primary" id="save-btn">Save</button>-->
+        <!--</div>-->
+    <!--</div>-->
+            <!--<script>-->
+                <!--$(function(){-->
+                    <!--$('#save-btn').click(function(){-->
+                        <!--$( "tr" ).each(function() {-->
+                            <!--if( $(this).closest('#paid-cb').is(':checked')){-->
+                                <!---->
+                            <!--}-->
+                        <!--});-->
+
+                    <!--});-->
+
+                <!--});-->
+
+            <!--</script>-->
+</body>
+</html>

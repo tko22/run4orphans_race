@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    {%load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'app/style.css' %}" />
+    <script src="{% static 'app/signup.js' %}"></script>
+
+</head>
+<body id="{{run.run_code}}">
+    <div class="pnav">
+        <div style="float:left" class="container">
+            <div class="logo-container"><a class="navbar-brand" href="#">
+            {% load static %}
+            <img width="308" height="61" src="{% static "app/run4orphanslogo.jpg" %}"/>
+            </a>
+            </div>
+            <div style="float:left;"class=" links">
+                  <a class="nav-link" href="http://www.run4orphans.org/light-love-home-global"><h5>Light & Love Home Global</h5></a>
+                  <a class="nav-link" href="http://www.run4orphans.org/light-love-home-san-francisco"><h5>Light & Love Home SF</h5></a>
+                  <a class="nav-link" href="#"><h5>Runners</h5></a>
+                  <a class="nav-link" href="http://www.run4orphans.org/about-us-and-contact"><h5>About Us</h5></a>
+                  <a class="nav-link" href="http://www.run4orphans.org/faq"><h5>FAQ</h5></a>
+                <a class="nav-link" href="http://www.run4orphans.org/events/lmr/"><h5>2017 Lake Merced Race</h5></a>
+            </div>
+        </div>
+    </div>
+    <div class="container signup-main">
+        <div class="row">
+            <h1>Sign Up!</h1>
+            <h5>Register for the {{run.name}} race!</h5>
+        </div>
+        <div class="row">
+            {% csrf_token %}
+            <div class="row runner-input">
+                <div class="col-md-3">First Name: </div>
+                <div class="col-md-9"><input type="text" class="form-control form-padding" id="fname-form" placeholder="Your first name"></div>
+            </div>
+            <div class="row runner-input">
+                <div class="col-md-3">Last Name: </div>
+                <div class="col-md-9"><input type="text" class="form-control form-padding" id="lname-form" placeholder="Your last name"></div>
+            </div>
+            <div class="row runner-input">
+                <div class="col-md-3">Email: </div>
+                <div class="col-md-9"><input type="text" class="form-control form-padding" id="email-form" placeholder="Your email"></div>
+            </div>
+            <div class="row runner-input">
+                <div class="col-md-3">Telephone: </div>
+                <div class="col-md-9"><input type="text" class="form-control form-padding" id="phone-form" placeholder="Your phone number"></div>
+            </div>
+            <div class="row runner-input">
+                <div class="col-md-3">Address: </div>
+                <div class="col-md-9"><input type="text" class="form-control form-padding" id="address-form" placeholder="Your address"></div>
+            </div>
+
+
+            <hr>
+            <div class="row runner-input" >
+                <div class="col-md-3">Gender</div>
+                <div class="col-md-9">
+                    <select class="form-control" id="gender-form" style="max-width:300px;">
+                        <option class="gender" id="male">Male</option>
+                        <option class="gender" id="female">Female</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row runner-input" style="margin-top:6px;">
+                <div class="col-md-3">Shirt size</div>
+                <div class="col-md-9">
+                    <select class="form-control" id="shirt-form" style="max-width:300px;">
+                        <option class="shirt-size" id="1">Youth S</option>
+                        <option class="shirt-size" id="2">Youth M</option>
+                        <option class="shirt-size" id="3">Youth L</option>
+                        <option class="shirt-size" id="4">Adult S</option>
+                        <option class="shirt-size" id="5">Adult M</option>
+                        <option class="shirt-size" id="6">Adult L</option>
+                        <option class="shirt-size" id="7">Adult XL</option>
+                    </select>
+                    <p>Free T-shirt will be given to registered runner (limited stock is available, register earlier to reserve yours!)</p>
+                </div>
+            </div>
+
+            <hr>
+            <div class="row">
+                <div class="col-md-8">Donation covering Registration fee-LLH Charity Run</div>
+                <div class="col-md-4">$25.00</div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-md-8">Other Donation (optional)</div>
+                <div class="col-md-4">
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" id="10-dollars" value="">$10
+                        </label>
+                    </div>
+
+                   <div class="checkbox">
+                        <label>
+                            <input type="checkbox" id="20-dollars" value="">$20
+                        </label>
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" id="50-dollars" value="">$50
+                        </label>
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" id="100-dollars" value="">$100
+                        </label>
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" id="other-dollars" value="">other
+                        </label>
+                    </div>
+
+                </div>
+            </div>
+
+
+            <div class="terms">
+                <p class="terms-details">Participants voluntarily assume the risks of attendance at and participation in the Event and hereby waive all claims of whatsoever nature and howsoever arising in relation to the Event or otherwise against any parties, including but not limited to the organizing body, the sponsors, the advertisers, any local authority and/or the directors, employees, suppliers and assistants of these parties, including any individual, official, marshal or agent.
+Parents or guardians authorizing a minor's participation in the Event consent to such minor being bound to the foregoing and further indemnify the Parties to the extent, if any, to which such minor is not capable of waiving his/her rights as stipulated above.
+Participants further grant permission to take and use photographs or videos of the participants for publication, websites or other communications. All photos or videos will be the property of Light & Love Home.</p>
+                <div class="checkbox">
+                      <label>
+                        <input type="checkbox" id="over-18"value="">
+                        I agree and I am over 18 years old & will sign up for myself
+                      </label>
+                </div>
+                <div class="checkbox">
+                          <label>
+                            <input type="checkbox" id="minor-signup" value="">
+                             I agree and am signing up for minority that I am a parent or legal guardian
+                          </label>
+                        </div>
+                        <input style="display:none;"type="text" class="form-control form-padding minor-form" id="minority-name-form" placeholder="Enter your minor's name">
+                        <input style="display:none;"type="text" class="form-control form-padding minor-form" id="minority-bday-form" placeholder="Enter minor's birthday in MM/DD/YYYY">
+                </div>
+
+            </div>
+            <hr>
+            <p id="error-msg"style="color:red; display:none;">This is an error message.</p>
+            <div class="row button-container">
+                <button type="button" class="btn btn-primary" id="register-btn">Register and Pay</button>
+            </div>
+            <div class="row" style="margin-top:24px;">
+                <h4 style="color:#c791ff;">Info day: 9/17/2016 (Sunday), 3:00 pm to 5:00 pm</h4>
+                <p>@ 870 Tavaral Street, 2 / F, San Francisco, CA 94116</p>
+                <p>(Info for runners/volunteers, T-shirts for runners, bib numbers for runners, Light and Love Home update)</p>
+            </div>
+
+        </div>
+
+
+
+    </div>
+    <hr style="margin-bottom:0px;">
+    <div style="font-size:10px; margin-bottom:40px; color:#bababa; margin-left:6px;">TKO</div>
+</body>
+</html>

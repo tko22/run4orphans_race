@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{run.name}}</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    {%load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'app/style.css' %}" />
+
+</head>
+<body id="{{run.run_code}}">
+    <div class="pnav">
+        <div style="float:left" class="container">
+            <div class="logo-container"><a class="navbar-brand" href="www.run4orphans.org" >
+            {% load static %}
+            <img width="308" height="61" src="{% static "app/run4orphanslogo.jpg" %}"/>
+            </a>
+            </div>
+            <div style="float:left;"class=" links">
+                  <a class="nav-link" href="http://www.run4orphans.org/light-love-home-global"><h5>Light & Love Home Global</h5></a>
+                  <a class="nav-link" href="http://www.run4orphans.org/light-love-home-san-francisco"><h5>Light & Love Home SF</h5></a>
+                  <a class="nav-link" href="#"><h5>Runners</h5></a>
+                  <a class="nav-link" href="http://www.run4orphans.org/about-us-and-contact"><h5>About Us</h5></a>
+                  <a class="nav-link" href="http://www.run4orphans.org/faq"><h5>FAQ</h5></a>
+                  <a class="nav-link" href="http://www.run4orphans.org/events/lmr/"><h5>2017 Lake Merced Race</h5></a>
+            </div>
+        </div>
+    </div>
+    <div class="container main">
+        <div class="row" style="display:inline-block;">
+            <h3 style="float:left;">{{run.name}}</h3>
+            <button type="button" class="btn btn-primary" id="register-btn"style="margin-top:16px; margin-left:30px;">Register Now!</button>
+        </div>
+        <div class="row details">
+            <h4 class="big-det">Registration deadline: <span class="tiny-det">Aug 27, 2017 (Sunday)</span></h4>
+            <h4 class="big-det">Run Date: <span class="tiny-det">Sept 23th, 2017 (Saturday)</span></h4>
+            <h4 class="big-det">Time: <span class="tiny-det">9:30 am to 12:30pm</span></h4>
+            <h4 class="big-det">Meeting point: <span class="tiny-det">9:30am arrive at Sunset Circle Parking lot at the junction of “Lake Merced Blvd and Sunset Blvd”.</span></h4>
+            <h4 class="big-det">Run details: <span class="tiny-det">Starts at 10:00 am, run along the whole Lake Merced, about 4.6 miles. The route is also open to the public. Please observe all traffic rules and safety guides. It is a charity run not for competition. Smile and enjoy the race with friends and families. We shall take your cheerful photos along the race. Photo sessions, refreshment & Snack will be provided after run. The race will be close by 12:30pm.</span></h4>
+            <p class="big-det">Note: The event will be held, rain or shine. Please bring an umbrella, a cap, and sunscreen as needed.Please wear the event t-shirt, bib & sports shoes.</p>
+            <hr>
+            <h4 class="big-det">Info day: 9/17/2016 (Sunday), 3:00 pm to 5:00 pm</h4>
+            <p class="tiny-det">@ 870 Tavaral Street, 2 / F, San Francisco, CA 94116</p>
+            <p class="tiny-det">(Info for runners/volunteers, T-shirts for runners, bib numbers for runners, Light and Love Home update)</p>
+            <hr>
+            {% load static %}
+            <h5 style="text-align:left;">Click map to get the address!</h5>
+            <a href="https://www.google.com/maps/place/Parking+Lot,+San+Francisco,+CA+94132/@37.7294318,-122.494358,508m/data=!3m1!1e3!4m13!1m7!3m6!1s0x808f7d0a67c4fbcd:0xdd1a13bc7c86af50!2sLake+Merced!3b1!8m2!3d37.7206672!4d-122.4955458!3m4!1s0x808f7d0a92e4b2c5:0x1a215511ea90d72a!8m2!3d37.728673!4d-122.4932469?hl=en"><img width="616" height="514.352" src="{% static "app/mercedracelocation.png" %}"/></a>
+
+        </div>
+    <script>
+        $(function(){
+            $("#register-btn").click(function(){
+                var code = $('body').attr("id");
+                window.location.replace("/"+code+"/signup/");
+                
+            })
+
+
+        });
+
+    </script>
+    </div>
+
+</body>
+</html>
