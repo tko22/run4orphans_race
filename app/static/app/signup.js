@@ -51,13 +51,13 @@ $(function(){
             return;
         }
         if($("#10-dollars").is(':checked')){
-            additional_money = 10;
+            additional_money = additional_money + 10;
         } else if($("#20-dollars").is(':checked')){
-            additional_money = 20;
+            additional_money = additional_money + 20;
         } else if($("#50-dollars").is(':checked')){
-            additional_money = 50;
+            additional_money = additional_money + 50;
         }else if($("#100-dollars").is(':checked')){
-            additional_money = 100;
+            additional_money = additional_money + 100;
         }
 
 
@@ -94,13 +94,7 @@ $(function(){
                     window.location.replace("https://www.paypal.me/lightandlovehome/"+money);
                 }
             }
-
-
-
         })
-
-
-
     });
 
 
