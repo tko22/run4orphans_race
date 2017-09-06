@@ -23,12 +23,11 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^login/$', auth_views.login),
     url(r'^logout/$', auth_views.logout),
-    url(r'^$',views.index, name='index'),
-    url(r'^(?P<run_code>\w+)$', views.run, name='run'),
+    url(r'^$',views.runner, name='index'),
+    url(r'^(?P<run_code>\w+)/$', views.run, name='run'),
+    url(r'^runners/(?P<user_id>\w+)/$', views.user ,name='user'),
     url(r'^(?P<run_code>\w+)/signup/$', views.signup, name='signup'),
     url(r'^(?P<run_code>\w+)/runnerinfo/$',views.runnerinfo, name='runnerinfo'), #requires login
-    url(r'^runners/$', views.runner, name='runner'),
-    url(r'^runners/(?P<user_id>\w+)/$', views.user ,name='user'),
     url(r'^api/registeruser/$',views.registeruser, name='registeruser'),
 
 

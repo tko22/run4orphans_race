@@ -17,7 +17,7 @@
 <body id="{{run.run_code}}">
     <div class="pnav">
         <div style="float:left" class="container">
-            <div class="logo-container"><a class="navbar-brand" href="#">
+            <div class="logo-container"><a class="navbar-brand" href="http://www.run4orphans.org">
             {% load static %}
             <img width="308" height="61" src="{% static "app/run4orphanslogo.jpg" %}"/>
             </a>
@@ -25,48 +25,60 @@
             <div style="float:left;"class=" links">
                   <a class="nav-link" href="http://www.run4orphans.org/light-love-home-global"><h5>Light & Love Home Global</h5></a>
                   <a class="nav-link" href="http://www.run4orphans.org/light-love-home-san-francisco"><h5>Light & Love Home SF</h5></a>
-                  <a class="nav-link" href="#"><h5>Runners</h5></a>
+                  <a class="nav-link" href="http://www.run4orphans.org/events/"><h5>Runners</h5></a>
                   <a class="nav-link" href="http://www.run4orphans.org/about-us-and-contact"><h5>About Us</h5></a>
                   <a class="nav-link" href="http://www.run4orphans.org/faq"><h5>FAQ</h5></a>
-                <a class="nav-link" href="http://www.run4orphans.org/events/lmr/"><h5>2017 Lake Merced Race</h5></a>
+                <a class="nav-link" href="http://www.run4orphans.org/events/lmr/"><h5>2017 Lake Merced Run</h5></a>
             </div>
         </div>
     </div>
     <div class="container main">
-        <div class="row" style="display:inline-block;">
+	<div class="row" style="margin-top:22px;">
+        <div class="col-md-8">
+	<div class="row" style="display:inline-block;">
             <h3 style="float:left;">Runners</h3>
         </div>
-        <div class="row list" style="margin-left:16px;">
-            <p><a href="http://www.run4orphans.org/runners/calvinko">Calvin Ko</a></p>
-            <p><a href="http://www.run4orphans.org/runners/CindyLam">Cindy Lam</a></p>
-            <p><a href="http://www.run4orphans.org/runners/dan-liu">Dan Liu</a></p>
-            <p><a href="http://www.run4orphans.org/runners/winlyanddanny">Danny Lim</a></p>
-            <p><a href="http://www.run4orphans.org/runners/danielmui">Daniel Mui</a></p>
-            <p><a href="http://www.run4orphans.org/runners/davidyeung">David Yeung</a></>
-            <p><a href="http://www.run4orphans.org/runners/fion-nguyen">Fion Nguyen</a></p>
-            <p><a href="http://www.run4orphans.org/runners/KamMingWong">Kam Ming Wong</a></p>
-            <p><a href="http://www.run4orphans.org/runners/MandyChung">Mandy Chung</a></p>
-            <p><a href="http://www.run4orphans.org/runners/elaineandweng" target="_blank" rel="noopener">Weng Ip</a></p>
-            <p><a href="http://www.run4orphans.org/runners/wingtatchan">Wingtat Chan</a></p>
-            <p><a href="http://www.run4orphans.org/runners/paul-kwan">Paul Kwan</a></>
-            <p><a href="http://www.run4orphans.org/runners/EinsZhao">Eins Zhao</a></p>
-            <p><a href="http://www.run4orphans.org/runners/anesdo-fong">Anesdo Fong</a></p>
-            <p><a href="http://www.run4orphans.org/amyyeung">Amy Yeung</a></p>
-            <p><a href="http://www.run4orphans.org/runners/justin-chan">Justin Chan</a></>
-            <p><a href="http://www.run4orphans.org/runners/NanciPang">Nanci Pang</a></p>
-            <p><a href="http://www.run4orphans.org/runners/JasonYu">Jason Yu</a></p>
-            <p><a href="http://www.run4orphans.org/runners/winnieyeung">Winnie Yeung</a></p>
-            <p><a href="http://www.run4orphans.org/runners/Holly-Ho">Holly Ho</a></p>
-            <p><a href="http://www.run4orphans.org/winlychan">Winly Chan</a></p>
-            <p><a href="http://www.run4orphans.org/hanna-lim">Hannah Lim</a></p>
+	<div class="row" style="margin-top:20px;">
+	    <img alt border="0" src="{% static "app/Cim-lhh.jpg"%}" width="700" height="350">
+	</div>
+	<hr>
+	<div class="row">
+	   <p>We are so blessed to be healthy, have a family, a job and be able to pursue the American Dream! Millions of orphans living in poverty, hunger and loneliness. Light & Love Home teams up with the Church of God in San Francisco, Oakland, Sacramento to support the orphans. We are so enthusiastic to see that many orphans are taken care by the children homes in the developing countries. We are very grateful for every dollar that you donate! Without you, we won't be able to share the joy and love with so many orphans! We may not be able to solve the global problem of the orphans, but to the one that we help, his/her life has been changing with hope & love. Please support our runners to run for the orphans and for the community! Your donation is greatly appreciated!</p>
+	</div>
+	<div class="row" style="margin-top:20px;"> <img alt border="0" src="{% static "app/sf-charity.jpg"%}" width="700" height="350"></div>
+        <hr>
+	<div class="row list" style="margin-left:16px;">
 
             {% for usr in users %}
-            <p><a href="{{usr.user_id}}">{{usr}}</a></p>
-            {% endfor %}
+	    <p><a href="/events/runners/{{usr.user_id}}">{{usr}}</a></p>
+	    {% endfor %}
         </div>
+	</div>
+	<div class="col-md-3" style="text-align:center; margin-top:20px;" >
+                <hr>
+                <span>Join Light and Love Home San Francisco to help the poor</span><br>
+                <div class="row">
+                    <form target="_blank" name="dform" action="https://www.paypal.com/cgi-bin/webscr" method="post">
+                        <input type="hidden" name="cmd" value="_s-xclick">
+                        <input type="hidden" name="hosted_button_id" value="T6UBCXDEKPTFY">
+                        <input type="hidden" name="item_name" value="Run4Orphans - runner - Light and Love Home San Francisco">
+                        <input type="hidden" name="custom" value="0:2">
+                        <input type="image" border="0" src="{% static "app/donate-button.png" %}" width="90" height="40" name="submite">
+                        <img alt border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+                    </form>
+                </div>
+                <span>Donation is tax deductible (<a href="http://www.run4orphans.org/faq">FAQ</a>)</span>
+                <br>
+                <br>
+                <p style="font-size: 85%">
+                    Light & Love Home is a registered <br>
+                    501c(3) non-profit organization. <br>
+                    Your donation is tax deductible<br>
+                </p>
 
-
-
+       </div>
+	<div class="col-md-1"></div>
+       </div>
     </div>
 </body>
 </html>

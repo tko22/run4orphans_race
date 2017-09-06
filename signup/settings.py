@@ -20,12 +20,13 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'e^^s!e%rc1(kj295lki%#=a#avo+4l%flwj+5faoh9+a)cx&mt'
+with open('/var/www/r4orphans/events/signup/secret_key.txt') as f:
+    SECRET_KEY = f.read().strip()
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['www.run4orphans.org']
 
 
 # Application definition
@@ -76,8 +77,10 @@ WSGI_APPLICATION = 'signup.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.r4orunners'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'r4odjangodb',
+	'USER': 'cko',
+	'PASSWORD':'mandyko98',
     }
 }
 
@@ -113,12 +116,16 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
-
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
-
+ADMINS = (
+  ('Tim', 'timothyko16@gmail.com'),
+)
+MANAGERS = (
+  ('Tim', 'timothyko16@gmail.com'),
+)
 STATIC_URL = '/static/'
+STATIC_ROOT = '/var/www/r4orphans/events/static/'
 
-
+SERVER_EMAIL = 'django@run4orphans.org'
 LOGIN_REDIRECT_URL = '/lmr/runnerinfo/'

@@ -28,7 +28,7 @@
                         <th>Gender</th>
                         <th>Size</th>
                         <th>Sign up Date</th>
-                        <th>Minor name</th>
+                        <th>Parent name</th>
                         <th>Minor Bday</th>
                         <th>Paid</th>
                   </tr>
@@ -50,7 +50,8 @@
                         {% elif runner.shirt_size == 5 %} Adult M
                         {% elif runner.shirt_size == 6 %} Adult L
                         {% elif runner.shirt_size == 7 %} Adult XL
-                        {% else %} wrong size
+                        {% elif runner.shirt_size == 8 %} Adult XS
+			{% else %} wrong size
                         {% endif %}
                     </td>
                     <td>{{runner.sign_up_date}}</td>

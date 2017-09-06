@@ -18,7 +18,7 @@
 <body id="{{user}}">
     <div class="pnav">
         <div style="float:left" class="container">
-            <div class="logo-container"><a class="navbar-brand" href="#">
+            <div class="logo-container"><a class="navbar-brand" href="http://www.run4orphans.org">
             {% load static %}
             <img width="308" height="61" src="{% static "app/run4orphanslogo.jpg" %}"/>
             </a>
@@ -26,31 +26,32 @@
             <div style="float:left;"class=" links">
                   <a class="nav-link" href="http://www.run4orphans.org/light-love-home-global"><h5>Light & Love Home Global</h5></a>
                   <a class="nav-link" href="http://www.run4orphans.org/light-love-home-san-francisco"><h5>Light & Love Home SF</h5></a>
-                  <a class="nav-link" href="http://www.run4orphans.org/events/runners/"><h5>Runners</h5></a>
+                  <a class="nav-link" href="http://www.run4orphans.org/events/"><h5>Runners</h5></a>
                   <a class="nav-link" href="http://www.run4orphans.org/about-us-and-contact"><h5>About Us</h5></a>
                   <a class="nav-link" href="http://www.run4orphans.org/faq"><h5>FAQ</h5></a>
-                <a class="nav-link" href="http://www.run4orphans.org/events/lmr/"><h5>2017 Lake Merced Race</h5></a>
+                <a class="nav-link" href="http://www.run4orphans.org/events/lmr/"><h5>2017 Lake Merced Run</h5></a>
             </div>
         </div>
     </div>
-    <div class="container main" style="margin-right:0px;">
+    <div class="container main">
         <div class="row">
             <h1>{{user}}</h1>
         </div>
         <div class="row">
-            <div class="col-md-9"></div>
-            <div class="col-md-3" style="text-align:center; ">
+           <div class="col-md-8" style="margin-top:20px;">{{user.page_text}}</div>
+	   <div class="col-md-1"></div>
+           <div class="col-md-3" style="text-align:center; ">
                 <hr>
                 <span>Join {{user.first_name}} to help the poor</span><br>
                 <div class="row">
                     <form target="_blank" name="dform" action="https://www.paypal.com/cgi-bin/webscr" method="post">
                         <input type="hidden" name="cmd" value="_s-xclick">
-                        <input type="hidden" name="hosted_button_id" value="6KKKMRVQZYYJG">
+                        <input type="hidden" name="hosted_button_id" value="T6UBCXDEKPTFY">
                         <input type="hidden" name="item_name" value="Run4Orphans - runner - {{user}}">
                         <input type="hidden" name="custom" value="0:2">
-                        <input type="image" src="http://kosolution.net/images/donate_paypal1.jpg" name="submite" border="0">
-                        <img alt border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
-                    </form>
+                        <input type="image" border="0" src="{% static "app/donate-button.png" %}" width="80" height="40" name="submite">
+		        <img alt border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+		    </form>
                 </div>
                 <span>Donation is tax deductible (<a href="http://www.run4orphans.org/faq">FAQ</a>)</span>
                 <br>

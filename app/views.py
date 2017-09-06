@@ -12,7 +12,7 @@ from django.http import JsonResponse
 from django.http import HttpResponseRedirect, HttpResponse
 from .models import Run, User
 from django.contrib.auth.decorators import login_required
-
+import logging
 
 # Create your views here.
 def index(request):
@@ -28,21 +28,6 @@ def signup(request,run_code):
     return render(request, 'app/signup.html', {
         'run': run
     })
-def user(request, user_id):
-    print user_id
-    user = get_object_or_404(User, user_id=user_id)
-
-    return render(request, 'app/user.html', {
-        'user':user
-    })
-
-def runner(request):
-    run = get_object_or_404(Run, run_code='lmr')
-    return render(request, 'app/runner.html', {
-        'run':run,
-        'users':run.user_set.all()
-    })
-
 @login_required
 def runnerinfo(request,run_code):
     run = get_object_or_404(Run, run_code=run_code)
@@ -50,19 +35,21 @@ def runnerinfo(request,run_code):
         'run': run
     })
 def registeruser(request):
-    ret = {'status': 'success'}
+    logger = logging.getLogger(__name__)
+    ret = {'status': 'success','m':'ugh'}
     try:
         data = request.body
         jsondata = json.loads(data)
         code = jsondata['code']
+
         try:
             run = Run.objects.get(run_code=code)
         except (Exception):
             print 'run doesnt exist'
             ret['status'] = 'failed'
             ret['message'] = 'cant get run'
+	    logger.error('run doesnt exist')
             return JsonResponse
-
         first_name = jsondata['fname']
         last_name = jsondata['lname']
         email = jsondata["email"]
@@ -76,14 +63,16 @@ def registeruser(request):
         if under_eighteen == True and over_eighteen == False:
             minor_name = jsondata["minor_name"]
             minor_bday = jsondata["minor_bday"]
-            user = run.user_set.create(first_name=first_name,last_name=last_name,email=email,telephone=phone,
+            user = run.user_set.create(first_name=minor_name,last_name="",email=email,telephone=phone,
                                        address=address,over_18=False,shirt_size=size,gender=gender,
-                                       minor_name=minor_name,minor_bday=minor_bday,user_id=user_id)
+                                       minor_name=first_name,minor_bday=minor_bday,user_id=user_id)
             user.save()
         elif under_eighteen == False and over_eighteen == True:
+            ret['m'] = 'before'
             user = run.user_set.create(first_name=first_name,last_name=last_name,email=email,telephone=phone,
                                        address=address,over_18=True,shirt_size=size,gender=gender,user_id=user_id)
             user.save()
+            ret['m'] = 'yes'
         else:
             ret['status'] = 'failed'
             ret['message'] = 'Please provide minor information'
@@ -92,8 +81,21 @@ def registeruser(request):
 
     except (Exception):
         ret['status'] = 'failed'
+	logger.error('creating user error')
         print traceback.print_exc()
     return JsonResponse(ret)
+def user(request,user_id):
+    print user_id
+    user = get_object_or_404(User, user_id=user_id)
 
+    return render(request, 'app/user.html', {
+        'user':user
+    })
+def runner(request):
+    run = get_object_or_404(Run, run_code='lmr')
+    return render(request, 'app/runner.html', {
+        'run':run,
+        'users':run.user_set.all()
+    })
 def randomcode():
    return ''.join(random.choice(string.lowercase) for i in range(5))

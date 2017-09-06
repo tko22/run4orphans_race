@@ -18,7 +18,7 @@
 <body id="{{run.run_code}}">
     <div class="pnav">
         <div style="float:left" class="container">
-            <div class="logo-container"><a class="navbar-brand" href="www.run4orphans.org" >
+            <div class="logo-container"><a class="navbar-brand" href="http://www.run4orphans.org" >
             {% load static %}
             <img width="308" height="61" src="{% static "app/run4orphanslogo.jpg" %}"/>
             </a>
@@ -26,10 +26,10 @@
             <div style="float:left;"class=" links">
                   <a class="nav-link" href="http://www.run4orphans.org/light-love-home-global"><h5>Light & Love Home Global</h5></a>
                   <a class="nav-link" href="http://www.run4orphans.org/light-love-home-san-francisco"><h5>Light & Love Home SF</h5></a>
-                  <a class="nav-link" href="#"><h5>Runners</h5></a>
+                  <a class="nav-link" href="http://www.run4orphans.org/events"><h5>Runners</h5></a>
                   <a class="nav-link" href="http://www.run4orphans.org/about-us-and-contact"><h5>About Us</h5></a>
                   <a class="nav-link" href="http://www.run4orphans.org/faq"><h5>FAQ</h5></a>
-                  <a class="nav-link" href="http://www.run4orphans.org/events/lmr/"><h5>2017 Lake Merced Race</h5></a>
+                  <a class="nav-link" href="http://www.run4orphans.org/events/lmr/"><h5>2017 Lake Merced Run</h5></a>
             </div>
         </div>
     </div>
@@ -46,7 +46,7 @@
             <h4 class="big-det">Run details: <span class="tiny-det">Starts at 10:00 am, run along the whole Lake Merced, about 4.6 miles. The route is also open to the public. Please observe all traffic rules and safety guides. It is a charity run not for competition. Smile and enjoy the race with friends and families. We shall take your cheerful photos along the race. Photo sessions, refreshment & Snack will be provided after run. The race will be close by 12:30pm.</span></h4>
             <p class="big-det">Note: The event will be held, rain or shine. Please bring an umbrella, a cap, and sunscreen as needed.Please wear the event t-shirt, bib & sports shoes.</p>
             <hr>
-            <h4 class="big-det">Info day: 9/17/2016 (Sunday), 3:00 pm to 5:00 pm</h4>
+            <h4 class="big-det">Info day: 9/17/2017 (Sunday), 3:00 pm to 5:00 pm</h4>
             <p class="tiny-det">@ 870 Tavaral Street, 2 / F, San Francisco, CA 94116</p>
             <p class="tiny-det">(Info for runners/volunteers, T-shirts for runners, bib numbers for runners, Light and Love Home update)</p>
             <hr>
@@ -59,7 +59,7 @@
         $(function(){
             $("#register-btn").click(function(){
                 var code = $('body').attr("id");
-                window.location.replace("/"+code+"/signup/");
+                window.location.replace("/events/"+code+"/signup/");
                 
             })
 
